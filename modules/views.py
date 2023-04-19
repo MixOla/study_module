@@ -11,18 +11,18 @@ from modules.serializers import ModuleSerializer
 
 
 class ModuleCreateView(CreateAPIView):
-    model = Module
+    queryset = Module.objects.all()
     serializer_class = ModuleSerializer
 
 
 class ModuleListView(ListAPIView):
-    model = Module
+    queryset = Module.objects.all()
     serializer_class = ModuleSerializer
     pagination_class = LimitOffsetPagination
 
 
 class ModuleView(RetrieveUpdateDestroyAPIView):
-    model = Module
+    queryset = Module.objects.all()
     serializer_class = ModuleSerializer
-    http_method_names = ['put', 'post', 'get', 'delete']
+
 
