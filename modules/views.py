@@ -4,21 +4,15 @@ from modules.models import Module
 from rest_framework.generics import (
     CreateAPIView,
     ListAPIView,
-    RetrieveUpdateDestroyAPIView
+    RetrieveUpdateDestroyAPIView, ListCreateAPIView
 )
 
 from modules.serializers import ModuleSerializer
 
 
-class ModuleCreateView(CreateAPIView):
+class ModuleCreateView(ListCreateAPIView):
     queryset = Module.objects.all()
     serializer_class = ModuleSerializer
-
-
-class ModuleListView(ListAPIView):
-    queryset = Module.objects.all()
-    serializer_class = ModuleSerializer
-    pagination_class = LimitOffsetPagination
 
 
 class ModuleView(RetrieveUpdateDestroyAPIView):
